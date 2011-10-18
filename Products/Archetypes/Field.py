@@ -313,7 +313,7 @@ class Field(DefaultLayerContainer):
         if errors and errors.has_key(name):
             return True
 
-        if self.required:
+        if self.required and not self.validators:
             res = self.validate_required(instance, value, errors)
             if res is not None:
                 return res
